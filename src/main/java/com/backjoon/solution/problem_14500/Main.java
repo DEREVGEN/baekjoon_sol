@@ -48,6 +48,7 @@ public class Main {
         System.out.println(max);
     }
 
+
     static void putBlock(int y, int x, int count, int depth) {
         if (depth == 4) {
             if (max < count)
