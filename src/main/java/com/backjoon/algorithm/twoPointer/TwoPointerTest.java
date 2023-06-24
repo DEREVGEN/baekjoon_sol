@@ -1,4 +1,4 @@
-package com.backjoon.solution;
+package com.backjoon.algorithm.twoPointer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
