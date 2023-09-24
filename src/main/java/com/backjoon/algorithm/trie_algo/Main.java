@@ -11,8 +11,5 @@ public class Main {
         trie.insert("woow");
         System.out.println(trie.search("woow"));
 
-        System.out.println(trie.search("wow"));
-        System.out.println(trie.search("wow"));
-        System.out.println(trie.search("woow"));
     }
 }
