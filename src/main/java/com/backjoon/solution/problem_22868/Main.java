@@ -35,7 +35,7 @@ public class Main {
             graphs[b].add(a);
         }
 
-        for (int i = 1; i <= N; i++)
+        for (int i = 1; i <= N; i++) // 사전순으로 접근해야 함
             Collections.sort(graphs[i]);
 
         st = new StringTokenizer(input.readLine());
@@ -48,19 +48,14 @@ public class Main {
         boolean[] isVisit = new boolean[N+1];
         List<Integer> startToDestPath = findPath(start, dest, isVisit);
 
-
         isVisit = new boolean[N+1];
-        for (var iter = startToDestPath.iterator(); iter.hasNext();) {
-            int vertex = iter.next();
+        for (var iter = startToDestPath.iterator(); iter.hasNext();) // start to dest 경로 vertex visit 처리
+            isVisit[iter.next()] = true;
 
-            if (vertex != start && vertex != dest)
-                isVisit[vertex] = true;
-        }
+        isVisit[start] = false;
+        isVisit[dest] = false;
+
         List<Integer> destToStartPath = findPath(dest, start, isVisit);
-
-        /*startToDestPath.forEach(vertex -> System.out.print(vertex + " "));
-        System.out.println();
-        destToStartPath.forEach(vertex -> System.out.print(vertex + " "));*/
 
         int size = startToDestPath.size() + destToStartPath.size() - 2;
         System.out.println(size);
