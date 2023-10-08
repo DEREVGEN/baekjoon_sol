@@ -1,4 +1,4 @@
-package com.backjoon.algorithm.trie_algo;
+package com.backjoon.algorithm.trie;
 
 public class Main {
 

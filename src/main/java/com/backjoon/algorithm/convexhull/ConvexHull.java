@@ -1,4 +1,4 @@
-package com.backjoon.algorithm.convex_hull;
+package com.backjoon.algorithm.convexhull;
 
 /*
     edited, 2023-06-17,

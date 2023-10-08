@@ -1,4 +1,4 @@
-package com.backjoon.algorithm.welzl_algo;
+package com.backjoon.algorithm.welzl;
 
 /*
     2023-06-20,

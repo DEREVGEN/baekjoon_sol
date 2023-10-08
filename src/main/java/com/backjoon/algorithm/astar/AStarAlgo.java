@@ -1,4 +1,4 @@
-package com.backjoon.algorithm.a_star_algo;
+package com.backjoon.algorithm.astar;
 
 import lombok.ToString;
 

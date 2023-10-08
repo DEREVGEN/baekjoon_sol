@@ -1,4 +1,4 @@
-package com.backjoon.solution;
+package com.backjoon.algorithm.powerset;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +19,7 @@ public class PowerSetAddingAlgo {
 
     public static void powerSetAdding(int[] nums, int size) {
 
-        Arrays.sort(nums);
+        // Arrays.sort(nums);
 
         int powSize = (int)Math.pow(2, size);
 

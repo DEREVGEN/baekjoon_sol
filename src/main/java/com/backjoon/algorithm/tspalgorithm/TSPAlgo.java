@@ -1,4 +1,4 @@
-package com.backjoon.algorithm.tsp_algorithm;
+package com.backjoon.algorithm.tspalgorithm;
 
 /*
 2023-07-25,

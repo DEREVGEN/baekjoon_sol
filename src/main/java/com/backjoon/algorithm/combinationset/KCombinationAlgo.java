@@ -1,4 +1,4 @@
-package com.backjoon.algorithm.combinationSet;
+package com.backjoon.algorithm.combinationset;
 
 
 // k combination set을 구하는 알고리즘

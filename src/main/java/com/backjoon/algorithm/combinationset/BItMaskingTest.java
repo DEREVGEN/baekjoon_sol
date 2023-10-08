@@ -1,4 +1,4 @@
-package com.backjoon.algorithm.combinationSet;
+package com.backjoon.algorithm.combinationset;
 
 public class BItMaskingTest {
 
