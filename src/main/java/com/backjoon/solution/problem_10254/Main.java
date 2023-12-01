@@ -85,44 +85,31 @@ public class Main {
     public static void rotatingCalipers(List<Point> hPoints, StringBuilder sb) {
         // get converx hull points next, rotating points
 
-        int k = 1;
         int n = hPoints.size();
 
-
-        // starting point is 0, so based on (n-1, 0), compare k point.
-        while (absArea(hPoints.get(n-1), hPoints.get(0), hPoints.get((k + 1) % n)) >
-                absArea(hPoints.get(n-1), hPoints.get(0), hPoints.get(k % n))) {
-            k++;
-        }
-
-        long res = 0;
+        long max = Long.MIN_VALUE;
         Point fP1 = null, fP2 = null;
 
-        for (int i = 0, j = k; i <= k && j < n; i++) {
-            long dist = dist(hPoints.get(i), hPoints.get(j));
+        int j = 1;
+        // starting point is 0, so based on (n-1, 0), compare k point.
+        for (int i = 0; i < n; i++) {
 
-            if (dist > res) {
-                res = dist;
-
+            long d = dist(hPoints.get(i), hPoints.get(j % n));
+            if (max < d) {
+                max = d;
                 fP1 = hPoints.get(i);
-                fP2 = hPoints.get(j);
+                fP2 = hPoints.get(j % n);
             }
-
-            while (j < n &&
-                    absArea(hPoints.get(i), hPoints.get((i + 1) % n), hPoints.get((j + 1) % n)) >
-                            absArea(hPoints.get(i), hPoints.get((i + 1) % n), hPoints.get((j) % n))) {
-
-                j++;
-                dist = dist(hPoints.get(i), hPoints.get(j % n));
-
-                if (dist > res) {
-                    res = dist;
-
+            // i 부터 시작
+            while ((j + 1) % n != i && cccw(hPoints.get(i), hPoints.get((i+1) % n), hPoints.get(j % n), hPoints.get((j+1) % n)) <= 0) {
+                d = dist(hPoints.get(i), hPoints.get(j % n));
+                if (max < d) {
+                    max = d;
                     fP1 = hPoints.get(i);
                     fP2 = hPoints.get(j % n);
                 }
+                j++;
             }
-
         }
 
         sb.append(fP1.y + " " + fP1.x + " " + fP2.y + " " + fP2.x + "\n");
@@ -134,6 +121,17 @@ public class Main {
 
         // r: result, r < 0 counter clock, r > 0 clock, r == 0 collinear
         return (r < 0) ? -1 : (r > 0) ? 1 : 0;
+    }
+
+    static Point tempPoint = new Point(0, 0);
+
+    public static int cccw(Point p1, Point p2, Point p3, Point p4) {
+        // p3 -> p4 벡터를 p2에 옮김.
+        tempPoint.y = p4.y - p3.y + p2.y;
+        tempPoint.x = p4.x - p3.x + p2.x;
+
+        // r: result, r < 0 counter clock, r > 0 clock, r == 0 collinear
+        return ccw(p1, p2, tempPoint);
     }
 
     public static long area(Point p1, Point p2, Point p3) {
