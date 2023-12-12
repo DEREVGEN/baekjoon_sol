@@ -113,7 +113,6 @@ public class Main {
         }
 
         sb.append(fP1.y + " " + fP1.x + " " + fP2.y + " " + fP2.x + "\n");
-
     }
 
     public static int ccw(Point p1, Point p2, Point p3) {

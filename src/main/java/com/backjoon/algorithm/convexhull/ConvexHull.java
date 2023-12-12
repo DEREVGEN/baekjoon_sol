@@ -73,23 +73,13 @@ public class ConvexHull {
     }
 
     public static int ccw(Point p1, Point p2, Point p3) {
-
         // res > 0: counter clock, res < 0: clock, res==0: collinear
-        return (p2.x - p1.x) * (p3.y - p1.y) - (p3.x - p1.x) * (p2.y - p1.y);
+        int cal = (p2.x - p1.x) * (p3.y - p1.y) - (p3.x - p1.x) * (p2.y - p1.y);
+
+        return (cal > 0) ? 1 : (cal < 0) ? -1 : 0;
     }
 
     public static long dist(Point p1, Point p2) {
         return (long)(p1.x - p2.x)*(p1.x - p2.x) + (long)(p1.y - p2. y)*(p1.y - p2.y);
-    }
-}
-
-@ToString
-class Point {
-    int x;
-    int y;
-
-    public Point(int y, int x) {
-        this.y = y;
-        this.x = x;
     }
 }

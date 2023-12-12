@@ -1,14 +1,29 @@
 package com.backjoon.algorithm.lowerbound;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
 public class LowerBoundTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        int[] nums = {1,2,2,3,3,3,7};
-        int target = 2;
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        int r = lowerBound(nums, nums.length, target);
+        System.out.print("input size : ");
+        int N = Integer.parseInt(input.readLine());
+        System.out.print("input numbers with blank : ");
 
+
+        st = new StringTokenizer(input.readLine());
+        int[] nums = new int[N];
+        for (int i = 0; i < N; i++)
+            nums[i] = Integer.parseInt(st.nextToken());
+
+        System.out.print("input target num : ");
+        int target = Integer.parseInt(input.readLine());
 
         int li = lowerBound(target, nums);
         int ui = upperBound(target, nums);
