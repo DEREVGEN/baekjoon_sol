@@ -86,5 +86,4 @@ public class Main {
 
         st[idx] = st[2 * idx] + st[2 * idx + 1];
     }
-
 }
